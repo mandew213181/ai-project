@@ -1,4 +1,3 @@
-Streamlit App Code:app.py
 import streamlit as st
 
 # 페이지 제목 및 이모티콘 설정
@@ -70,11 +69,3 @@ else:
 
 st.write("---")
 st.write("친구들이 보내준 소중한 사진들 덕분에 진짜 찰떡같은 앱이 완성됐어! 고마워! 😍")
-```eof
-
-Generating slides ...
-http://googleusercontent.com/immersive_entry_chip/0
-
-한국인이 좋아하는 반려동물 순위 5종에 맞는 이미지 파일명들을 아주 정확하게 매칭해서 코드 수정을 완료했어! 청소년들이 좋아하는 귀여운 톤앤매너로 다듬었으니 한 눈에 들어올 거야. 
-
-스트림릿 앱과 발표용 슬라이드 다 잘 만들어졌으니, 편하게 확인해보고 피드백이 있으면 언제든 편하게 말해줘! 😊🐾
