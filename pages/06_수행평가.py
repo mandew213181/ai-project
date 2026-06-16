@@ -1,91 +1,221 @@
-import base64
 import streamlit as st
 
-# 페이지 제목 및 이모티콘 설정
-st.set_page_config(page_title="댕냥이 최애 순위!", page_icon="🐾")
 
-st.title("🐾 한국인이 좋아하는 반려동물 TOP 5")
-st.write("안녕 친구들! 우리 곁을 지켜주는 최고 귀염둥이 강아지와 고양이들의 순위가 궁금하지? 아래에서 직접 확인해봐! 😎")
 
-# 선택 박스
-choice = st.radio("궁금한 동물을 골라봐!", ("🐶 선호하는 반려견 순위", "🐱 선호하는 반려묘 순위"))
+# 페이지 제목 설정 (귀여운 이모티콘은 필수!)
 
-st.write("---")
+st.set_page_config(page_title="최애 반려동물 순위 TOP 5", page_icon="🐾")
 
-# [보안 및 에러 방지] 로컬 파일 경로 문제를 해결하기 위한 안전한 이미지 로드 함수
-def load_image(file_name):
-    """
-    스트림릿 클라우드의 경로 에러(MediaFileStorageError)를 방지하기 위해
-    상대 경로와 pages/ 경로를 둘 다 찾아보고 안전하게 불러오는 함수야!
-    """
-    import os
-    # 1. 일반적인 현재 폴더 경로 확인
-    if os.path.exists(file_name):
-        return file_name
-    # 2. pages 폴더 하위에 있을 경우를 대비한 경로 확인
-    possible_path = os.path.join("pages", file_name)
-    if os.path.exists(possible_path):
-        return possible_path
-    
-    # 3. 만약 파일이 정말 없을 때 에러로 앱이 터지는 걸 막기 위한 예외 처리!
-    return None
+
+
+st.title("🐾 한국인이 사랑하는 반려견 & 반려묘 TOP 5")
+
+st.write("친구들 안녕! 한국 사람들에게 가장 사랑받는 댕댕이와 냥냥이 순위가 궁금하지? 아래에서 하나를 골라봐! 👇")
+
+
+
+# 1. 반려견/반려묘 선택 라디오 버튼
+
+choice = st.radio(
+
+    "어떤 동물의 순위가 보고 싶어?",
+
+    ("🐶 선호하는 반려견 순위", "🐱 선호하는 반려묘 순위")
+
+)
+
+
+
+st.write("---") # 구분선
+
+
+
+# 2. 선택에 따른 조건문 처리
 
 if "반려견" in choice:
-    st.subheader("🐶 한국인이 가장 사랑하는 반려견 TOP 5")
+
+    st.subheader("🐶 한국인이 선호하는 반려견 TOP 5")
+
     
-    # 1위 몰티즈
+
+    # 1위 말mport streamlit as st
+
+
+
+
+
+
+
+# 페이지 제목 설정 (귀여운 이모티콘은 필수!)
+
+
+
+st.set_page_config(page_title="최애 반려동물 순위 TOP 5", page_icon="🐾")
+
+
+
+
+
+
+
+st.title("🐾 한국인이 사랑하는 반려견 & 반려묘 TOP 5")
+
+
+
+st.write("친구들 안녕! 한국 사람들에게 가장 사랑받는 댕댕이와 냥냥이 순위가 궁금하지? 아래에서 하나를 골라봐! 👇")
+
+
+
+
+
+
+
+# 1. 반려견/반려묘 선택 라디오 버튼
+
+
+
+choice = st.radio(
+
+
+
+    "어떤 동물의 순위가 보고 싶어?",
+
+
+
+    ("🐶 선호하는 반려견 순위", "🐱 선호하는 반려묘 순위")
+
+
+
+)
+
+
+
+
+
+
+
+st.write("---") # 구분선
+
+
+
+
+
+
+
+# 2. 선택에 따른 조건문 처리
+
+
+
+if "반려견" in choice:
+
+
+
+    st.subheader("🐶 한국인이 선호하는 반려견 TOP 5")
+
+
+
+    
+
+
+
+    # 1위 말티즈
+
     st.markdown("### 🥇 1위. 몰티즈")
-    st.info("가장 높은 선호도를 자랑하는 국민 반려견이야! 솜사탕처럼 하얗고 귀여운 매력이 넘쳐나지 🤍")
-    img = load_image("몰티즈.jpg")
-    if img: st.image(img, caption="우리의 영원한 1등 몰티즈", use_container_width=True)
-    else: st.warning("⚠️ '몰티즈.jpg' 파일을 찾을 수 없어! 깃허브 저장소에 파일이 잘 올라갔는지 확인해줘.")
+
+    st.caption("가장 높은 선호도를 자랑하는 국민 반려견!")
+
+    st.image("https://mblogthumb-phinf.pstatic.net/MjAyMzA4MTZfMiAg/MDAxNjkyMTc2MjA2MjU0.rLjr0YZ1kJv8CjGOW2tAe75X5LsIIl2w5EPPyPi7AAog.ILw7MJVfhAZoXClRWcob8kv1eAnuUYztPHo6p0-COo0g.JPEG.dodoroong/%EB%A7%90%ED%8B%B0%EC%A6%88%EC%84%B1%EA%B2%A9.jpeg?type=w800)
+
     
+
     # 2위 푸들
+
     st.markdown("### 🥈 2위. 푸들")
-    st.info("엄청 똑똑해서 훈련도 잘 받고, 털이 잘 안 빠져서 실내에서 키우기 최고의 댕댕이야! 🐩")
-    img = load_image("푸들.jpg")
-    if img: st.image(img, caption="지능 천재 푸들", use_container_width=True)
-    else: st.warning("⚠️ '푸들.jpg' 파일을 찾을 수 없어!")
+
+    st.caption("지능이 높고 털 빠짐이 적어 인기 만점!")
+
+    st.image("https://images.mypetlife.co.kr/content/uploads/2022/08/10155702/wonder-kim-D5_HAWtY0zE-unsplash-edited-scaled.jpg)
+
     
+
     # 3위 믹스견
+
     st.markdown("### 🥉 3위. 믹스견")
-    st.info("다양한 장점만 쏙쏙 닮아서 세상에 단 하나뿐인 독보적인 귀여움과 튼튼한 건강을 가졌어! 🐕")
-    img = load_image("믹스견.jpeg")
-    if img: st.image(img, caption="세상에 유일무이한 믹스견", use_container_width=True)
-    else: st.warning("⚠️ '믹스견.jpeg' 파일을 찾을 수 없어!")
+
+    st.caption("다양한 매력과 건강함으로 최근 인기가 급상승 중!")
+
+    st.image("https://dimg.donga.com/wps/NEWS/IMAGE/2015/11/23/74957404.2.jpg)
+
     
+
     # 4위 포메라니안
+
     st.markdown("### 4위. 포메라니안")
-    st.info("풍성하고 빵빵한 털 덕분에 가만히 있어도 걸어 다니는 인형 그 자체야! 🧸")
-    img = load_image("포메라니안.jpg")
-    if img: st.image(img, caption="둥글둥글 솜뭉치 포메라니안", use_container_width=True)
-    else: st.warning("⚠️ '포메라니안.jpg' 파일을 찾을 수 없어!")
+
+    st.caption("풍성한 털과 인형 같은 외모의 소유자!")
+
+    st.image("https://i.namu.wiki/i/M1M-NN0KXK4kVzVuRzh9k92Dk2WRIcJ_LMMG1qx6o7m-Sk7SH5yVC01omAsqI6Nz-lEtx_MBxHPdcHnAeaipwQ.webp)
+
     
+
     # 5위 비숑 프리제
+
     st.markdown("### 5위. 비숑 프리제")
-    st.info("트레이드 마크인 동글동글한 '하이바' 미용과 활발하고 긍정적인 에너지가 넘쳐 흘러! ⚡")
-    img = load_image("비숑 프리제.jpeg")
-    if img: st.image(img, caption="명랑 쾌활 비숑 프리제", use_container_width=True)
-    else: st.warning("⚠️ '비숑 프리제.jpeg' 파일을 찾을 수 없어!")
+
+    st.caption("하이바를 쓴 것 같은 뽀송뽀송한 매력!")   st.image("https://www.yomidog.com/preSaleUpFile/240328_%E1%84%80%E1%85%A1%E1%86%BC%E1%84%82%E1%85%A1%E1%86%B7%E1%84%91%E1%85%A9%E1%84%86%E1%85%A6_63864.png)
+
+
 
 else:
-    st.subheader("🐱 한국인이 가장 사랑하는 반려묘 TOP 5")
+
+    st.subheader("🐱 한국인이 선호하는 반려묘 TOP 5")
+
     
+
     # 1위 코리안 숏헤어
+
     st.markdown("### 🥇 1위. 코리안 숏헤어")
-    st.info("우리 곁에서 오랜 시간 동고동락해 온 친근하고 똑똑한 토종 고양이야! 애교 넘치는 냥이들이 많아 🧡")
-    img = load_image("코리안 숏헤어.jpg")
-    if img: st.image(img, caption="우리의 다정한 이웃 코리안 숏헤어", use_container_width=True)
-    else: st.warning("⚠️ '코리안 숏헤어.jpg' 파일을 찾을 수 없어!")
+
+    st.caption("국내에서 가장 많이 기르는 친근한 우리 길냥이 친구들!")
+
+    st.image("https://mblogthumb-phinf.pstatic.net/MjAyMjAxMDlfNjEg/MDAxNjQxNzMwNDg1ODk3.xxITnHXFfWuxtKGKhq0ikQ7yB7pqPXt0y6FAh_NUfkEg.SUcnfgww-0esgfNZ4Se6bJHhq1eEQwgaScMU0peNU4gg.JPEG.sofun123456/SE-e5a59d76-713e-11ec-a689-479cbb60a438.jpg?type=w800)
+
     
+
     # 2위 페르시안
+
     st.markdown("### 🥈 2위. 페르시안")
-    st.info("길고 우아한 털에 얌전하고 온순한 성격까지 갖춘 고양이계의 진정한 귀족님이야! 👑")
-    img = load_image("페르시안.jpg")
-    if img: st.image(img, caption="우아함의 정석 페르시안", use_container_width=True)
-    else: st.warning("⚠️ '페르시안.jpg' 파일을 찾을 수 없어!")
+
+    st.caption("풍성한 털과 우아한 분위기를 풍기는 고양이!")
+
+    st.image("https://cdn.imweb.me/upload/S20220518fbea59f8e9828/fead60c58f4fd.jpg)
+
     
+
     # 3위 러시안 블루
+
     st.markdown("### 🥉 3위. 러시안 블루")
-    st.info("빛나는 은회색 털과 에메랄드처럼 영롱한 초록빛 눈동자가 무척 신비로운 친구지! 💚")
-    img = load_image("러시안
+
+    st.caption("신비로운 은회색 털과 초록색 눈이 매력적이야!")
+
+    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgWxAaniE-VCDKPA0mJm_Y4IK2l-ddNu0pOQ&s)
+
+    
+
+    # 4위 스코티시 폴드
+
+    st.markdown("### 4위. 스코티시 폴드")
+
+    st.caption("접힌 귀가 동글동글해서 너무 귀여운 친구!")
+
+    st.image("https://img.segye.com/content/image/2017/05/11/20170511514641.jpg)
+
+    
+
+    # 5위 샴
+
+    st.markdown("### 5위. 샴")
+
+    st.caption("얼굴과 발끝의 포인트 색상이 멋진 수다쟁이 고양이!")
+
+    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsnK8K2QdswBWyvyi1nZb_1V_WtIRFvK9BZw&s)
